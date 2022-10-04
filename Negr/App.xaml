@@ -1,0 +1,13 @@
+﻿<Application x:Class="Negr.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Negr"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="DarkCyan">
+                
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>

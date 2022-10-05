@@ -81,6 +81,9 @@
     <Compile Include="PageApp\AutoPage.xaml.cs">
       <DependentUpon>AutoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageApp\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageApp\RegPage.xaml.cs">
       <DependentUpon>RegPage.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PageApp\AutoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageApp\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

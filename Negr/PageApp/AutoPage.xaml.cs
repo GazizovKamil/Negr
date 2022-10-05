@@ -39,7 +39,8 @@ namespace Negr.PageApp
                     (z => z.login == TextLogin.Text && z.Password == TextPassword.Password).FirstOrDefault();
                 if(DataLogin != null)
                 {
-                    MessageBox.Show($"{DataLogin}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.Navigate(new MainPage());
+
                 }
             }
             else

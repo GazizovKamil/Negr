@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Negr.ClassApp;
 
 namespace Negr.PageApp
 {
@@ -23,6 +24,38 @@ namespace Negr.PageApp
         public RegPage()
         {
             InitializeComponent();
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var autoStudent = DBConection.GreenAntiCafeWithBearEntities.Logins.Where(x => x.login == txtLogin.Text).FirstOrDefault();
+                if(autoStudent == null)
+                {
+                    Users newUsers = new Users();
+                    newUsers.Name = txtBoxName.Text;
+                    Logins login = new Logins()
+                    {
+                        login = txtLogin.Text,
+                        Password = txtPassword.Text,
+                    };
+
+                    newUsers.Type_id = 1;
+                    newUsers.Logins.Add(login);
+
+                    DBConection.GreenAntiCafeWithBearEntities.Users.Add(newUsers);
+                    DBConection.GreenAntiCafeWithBearEntities.SaveChanges();
+                    
+                    this.NavigationService.Navigate(new AutoPage());
+                }
+               else
+
+                {
+                    MessageBox.Show("This user already exists!!");
+                }
+            }
+            catch { }
         }
     }
 }

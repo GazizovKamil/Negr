@@ -21,11 +21,11 @@
                     <RowDefinition Height="150*"/>
                     <RowDefinition Height="85*"/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="txtLogin" Grid.Column="1" HorizontalAlignment="Left" Margin="44,102,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="276"/>
-                <TextBox x:Name="txtPassword" Grid.Column="1" HorizontalAlignment="Left" Margin="44,145,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="276"/>
+                <TextBox x:Name="txtLogin" Grid.Column="1" HorizontalAlignment="Left" Margin="44,102,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="276"/>
+                <TextBox x:Name="txtPassword" Grid.Column="1" HorizontalAlignment="Left" Margin="44,145,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="276"/>
                 <Label x:Name="lblLogin" Grid.Column="1" Content="Login" HorizontalAlignment="Left" Margin="44,76,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.576,0.868"/>
                 <Label x:Name="lblPassword" Grid.Column="1" Content="Password" HorizontalAlignment="Left" Margin="44,119,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.343,1.194"/>
-                <TextBox x:Name="txtBoxName" Grid.Column="1" HorizontalAlignment="Left" Margin="44,58,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="276"/>
+                <TextBox x:Name="txtBoxName" Grid.Column="1" HorizontalAlignment="Left" Margin="44,58,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="276"/>
                 <Button x:Name="btnOK" Grid.Column="1" Content="OK" HorizontalAlignment="Center" Margin="0,174,0,0" Grid.Row="1" VerticalAlignment="Top" Width="68" Click="btnOK_Click"/>
                 <Label x:Name="lblName" Grid.Column="1" Content="Name" HorizontalAlignment="Left" Margin="44,27,0,0" Grid.Row="1" VerticalAlignment="Top"/>
             </Grid>

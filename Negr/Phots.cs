@@ -12,13 +12,12 @@ namespace Negr
     using System;
     using System.Collections.Generic;
     
-    public partial class Orders
+    public partial class Phots
     {
-        public int id_order { get; set; }
+        public int id_Phot { get; set; }
         public int User_id { get; set; }
-        public int Bear_id { get; set; }
+        public string path { get; set; }
     
-        public virtual Bear Bear { get; set; }
         public virtual Users Users { get; set; }
     }
 }

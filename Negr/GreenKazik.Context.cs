@@ -13,10 +13,10 @@ namespace Negr
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GreenAntiCafeWithBearEntities : DbContext
+    public partial class GreenKazikEntities : DbContext
     {
-        public GreenAntiCafeWithBearEntities()
-            : base("name=GreenAntiCafeWithBearEntities")
+        public GreenKazikEntities()
+            : base("name=GreenKazikEntities")
         {
         }
     
@@ -25,11 +25,14 @@ namespace Negr
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Bear> Bear { get; set; }
+        public virtual DbSet<Balances> Balances { get; set; }
+        public virtual DbSet<Crits> Crits { get; set; }
+        public virtual DbSet<Invent> Invent { get; set; }
+        public virtual DbSet<InventItems> InventItems { get; set; }
+        public virtual DbSet<Items> Items { get; set; }
         public virtual DbSet<Logins> Logins { get; set; }
-        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Phots> Phots { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Types> Types { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

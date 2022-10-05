@@ -12,27 +12,20 @@ namespace Negr
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class Items
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public Items()
         {
-            this.Balances = new HashSet<Balances>();
-            this.Invent = new HashSet<Invent>();
-            this.Logins = new HashSet<Logins>();
-            this.Phots = new HashSet<Phots>();
+            this.InventItems = new HashSet<InventItems>();
         }
     
-        public string Name { get; set; }
-        public int id_User { get; set; }
+        public int id_item { get; set; }
+        public string Title { get; set; }
+        public int CritParamm { get; set; }
+        public int price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Balances> Balances { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invent> Invent { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Logins> Logins { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Phots> Phots { get; set; }
+        public virtual ICollection<InventItems> InventItems { get; set; }
     }
 }

@@ -33,6 +33,7 @@ namespace Negr.PageApp
                 var autoStudent = DBConection.GreenAntiCafeWithBearEntities.Logins.Where(x => x.login == txtLogin.Text).FirstOrDefault();
                 if(autoStudent == null)
                 {
+                    Balances newBalance = new Balances();
                     Users newUsers = new Users();
                     newUsers.Name = txtBoxName.Text;
                     Logins login = new Logins()
@@ -41,8 +42,8 @@ namespace Negr.PageApp
                         Password = txtPassword.Text,
                     };
 
-                    newUsers.Type_id = 1;
                     newUsers.Logins.Add(login);
+                    newUsers.Balances.Add(newBalance);
 
                     DBConection.GreenAntiCafeWithBearEntities.Users.Add(newUsers);
                     DBConection.GreenAntiCafeWithBearEntities.SaveChanges();

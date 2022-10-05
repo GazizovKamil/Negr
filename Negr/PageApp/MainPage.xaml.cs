@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Negr.ClassApp;
 
 namespace Negr.PageApp
 {
@@ -20,9 +21,13 @@ namespace Negr.PageApp
     /// </summary>
     public partial class MainPage : Page
     {
-        public MainPage()
+        Users CorrUser;
+        public MainPage(Logins CorrUser)
         {
             InitializeComponent();
+            this.CorrUser = CorrUser.Users;
+            var CountUs = DBConection.GreenAntiCafeWithBearEntities.Balances.Where(x => x.User_id == CorrUser.User_id).FirstOrDefault();
+
         }
     }
 }

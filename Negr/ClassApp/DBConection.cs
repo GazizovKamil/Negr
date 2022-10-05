@@ -9,6 +9,6 @@ namespace Negr.ClassApp
 {
     internal class DBConection
     {
-        public static GreenAntiCafeWithBearEntities GreenAntiCafeWithBearEntities = new GreenAntiCafeWithBearEntities();
+        public static GreenKazikEntities GreenAntiCafeWithBearEntities = new GreenKazikEntities();
     }
 }

@@ -64,19 +64,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ADDApp.cs">
+    <Compile Include="Balances.cs">
+      <DependentUpon>GreenKazik.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crits.cs">
+      <DependentUpon>GreenKazik.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GreenKazik.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ADDApp.tt</DependentUpon>
+      <DependentUpon>GreenKazik.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Bear.cs">
-      <DependentUpon>ADDApp.tt</DependentUpon>
+    <Compile Include="GreenKazik.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GreenKazik.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GreenKazik.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GreenKazik.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Invent.cs">
+      <DependentUpon>GreenKazik.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventItems.cs">
+      <DependentUpon>GreenKazik.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Items.cs">
+      <DependentUpon>GreenKazik.tt</DependentUpon>
     </Compile>
     <Compile Include="Logins.cs">
-      <DependentUpon>ADDApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Orders.cs">
-      <DependentUpon>ADDApp.tt</DependentUpon>
+      <DependentUpon>GreenKazik.tt</DependentUpon>
     </Compile>
     <Compile Include="PageApp\AutoPage.xaml.cs">
       <DependentUpon>AutoPage.xaml</DependentUpon>
@@ -87,29 +106,19 @@
     <Compile Include="PageApp\RegPage.xaml.cs">
       <DependentUpon>RegPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>ADDApp.tt</DependentUpon>
+    <Compile Include="Phots.cs">
+      <DependentUpon>GreenKazik.tt</DependentUpon>
     </Compile>
-    <Compile Include="Types.cs">
-      <DependentUpon>ADDApp.tt</DependentUpon>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>GreenKazik.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>ADDApp.tt</DependentUpon>
+      <DependentUpon>GreenKazik.tt</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="ADDApp.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ADDApp.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ADDApp.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ADDApp.edmx</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -150,12 +159,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="ADDApp.edmx">
+    <EntityDeploy Include="GreenKazik.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ADDApp.Designer.cs</LastGenOutput>
+      <LastGenOutput>GreenKazik.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ADDApp.edmx.diagram">
-      <DependentUpon>ADDApp.edmx</DependentUpon>
+    <None Include="GreenKazik.edmx.diagram">
+      <DependentUpon>GreenKazik.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -167,24 +176,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ADDApp.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ADDApp.Context.cs</LastGenOutput>
-      <DependentUpon>ADDApp.edmx</DependentUpon>
-    </Content>
-    <Content Include="ADDApp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ADDApp.edmx</DependentUpon>
-      <LastGenOutput>ADDApp.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ADDApp\" />
     <Folder Include="WindowApp\" />
     <Folder Include="Windows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GreenKazik.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GreenKazik.edmx</DependentUpon>
+      <LastGenOutput>GreenKazik.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GreenKazik.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GreenKazik.edmx</DependentUpon>
+      <LastGenOutput>GreenKazik.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

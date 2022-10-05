@@ -12,18 +12,21 @@ namespace Negr
     using System;
     using System.Collections.Generic;
     
-    public partial class Types
+    public partial class Invent
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Types()
+        public Invent()
         {
-            this.Users = new HashSet<Users>();
+            this.InventItems = new HashSet<InventItems>();
         }
     
-        public int id_type { get; set; }
-        public string Title { get; set; }
+        public int id_invent { get; set; }
+        public int User_id { get; set; }
+        public int Crit_id { get; set; }
     
+        public virtual Crits Crits { get; set; }
+        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
+        public virtual ICollection<InventItems> InventItems { get; set; }
     }
 }

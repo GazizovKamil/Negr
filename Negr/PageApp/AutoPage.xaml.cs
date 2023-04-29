@@ -39,8 +39,7 @@ namespace Negr.PageApp
                     (z => z.login == TextLogin.Text && z.Password == TextPassword.Password).FirstOrDefault();
                 if(DataLogin != null)
                 {
-                    NavigationService.Navigate(new MainPage());
-
+                    this.NavigationService.Navigate(new MainPage(DataLogin));
                 }
             }
             else

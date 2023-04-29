@@ -27,7 +27,6 @@ namespace Negr.PageApp
             InitializeComponent();
             this.CorrUser = CorrUser.Users;
             var CountUs = DBConection.GreenAntiCafeWithBearEntities.Balances.Where(x => x.User_id == CorrUser.User_id).FirstOrDefault();
-
         }
     }
 }

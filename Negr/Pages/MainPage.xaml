@@ -35,7 +35,10 @@
                         <GridViewColumn Header="Действия" Width="Auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Подробнее" Width="100" Height="30" Click="ViewRecipe_Click"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Подробнее" Width="100" Height="30" Click="ViewRecipe_Click"/>
+                                        <Button Content="Удалить" Width="100" Height="30" Click="DeleteRecipe_Click"/>
+                                    </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

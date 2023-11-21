@@ -27,6 +27,7 @@ namespace Negr.Windows
             InitializeComponent();
             DataContext = recipe;
             this.user = user;
+            lvIngredients.Items.Add(recipe.Ingredients);
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

@@ -8,13 +8,27 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Детали рецепт">
 
-    <Grid>
-        <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="24" FontWeight="Bold"/>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel>
+            <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"/>
 
-        <Image Source="{Binding ImagePath}" Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0"/>
+            <Label Content="Инструкция" Margin="10,10,0,0"/>
+            <TextBlock Text="{Binding Instructions}" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"/>
 
-        <TextBlock Text="{Binding Instructions}" TextWrapping="Wrap" Width="350" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,270,0,0" FontSize="16"/>
+            <Label Content="Время готовки" Margin="10,10,0,0"/>
+            <TextBlock Text="{Binding PreparationTime}" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"/>
 
-        <Button Content="Закрыть" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" FontSize="16" Click="Close_Click"/>
+            <Label Content="Ингридиенты" Margin="10,10,0,0"/>
+            <ListView x:Name="lvIngredients" Height="100">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Название ингредиента" Width="200" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Количество" Width="100" DisplayMemberBinding="{Binding Quantity}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Button Content="Закрыть" Width="100" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="16" Click="Close_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

@@ -30,7 +30,65 @@ namespace Negr.Pages
 
         private void SaveRecipe_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new MainPage(user));
+            // Сбор данных о рецепте
+            string recipeName = txtRecipeName.Text;
+            if (string.IsNullOrWhiteSpace(recipeName))
+            {
+                MessageBox.Show("Введите название рецепта.");
+                return;
+            }
+
+            if (!int.TryParse(txtPreparationTime.Text, out int preparationTime) || preparationTime <= 0)
+            {
+                MessageBox.Show("Введите корректное время приготовления.");
+                return;
+            }
+
+            string instructions = txtInstructions.Text;
+            if (string.IsNullOrWhiteSpace(instructions))
+            {
+                MessageBox.Show("Введите инструкции по приготовлению.");
+                return;
+            }
+
+            // Создание объекта рецепта
+            Recipes newRecipe = new Recipes
+            {
+                Name = recipeName,
+                PreparationTime = preparationTime,
+                Instructions = instructions,
+                UserID = user.UserID, // Предполагается, что у вас есть объект user с его ID
+                ImagePath = "",
+            };
+
+            // Добавление ингредиентов к рецепту
+            foreach (Ingredients ingredient in lvIngredients.Items)
+            {
+                newRecipe.Ingredients.Add(ingredient);
+            }
+
+            try
+            {
+                Requests.Requests.SaveRecipeToDatabase(newRecipe);
+                MessageBox.Show("Рецепт успешно сохранен.");
+                this.NavigationService?.Navigate(new MainPage(user));
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                string validationErrors = "";
+                foreach (var validationError in dbEx.EntityValidationErrors)
+                {
+                    foreach (var error in validationError.ValidationErrors)
+                    {
+                        validationErrors += $"Property: {error.PropertyName} Error: {error.ErrorMessage}\n";
+                    }
+                }
+                MessageBox.Show("Произошла ошибка при сохранении рецепта:\n" + validationErrors);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка при сохранении рецепта: " + ex.Message);
+            }
         }
 
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
@@ -38,39 +96,30 @@ namespace Negr.Pages
             string ingredientName = txtIngredientName.Text;
             if (string.IsNullOrWhiteSpace(ingredientName))
             {
-                MessageBox.Show("Please enter the ingredient name.");
+                MessageBox.Show("Пожалуйста, введите название ингредиента.");
                 return;
             }
 
-            if (int.TryParse(txtIngredientQuantity.Text, out int ingredientQuantity))
+            if (!int.TryParse(txtIngredientQuantity.Text, out int ingredientQuantity) || ingredientQuantity <= 0)
             {
-                // Create a new ingredient and add it to the current recipe
-                Ingredients ingredient = new Ingredients
-                {
-                    Name = ingredientName,
-                    Quantity = ingredientQuantity
-                };
-
-                Recipes currentRecipe = new Recipes();
-                if (lvIngredients.DataContext != null)
-                {
-                    currentRecipe = (Recipes)lvIngredients.DataContext;
-                }
-
-                currentRecipe.Ingredients.Add(ingredient);
-
-                // Update the ListView
-                lvIngredients.DataContext = currentRecipe;
-                lvIngredients.Items.Refresh();
-
-                // Clear ingredient input fields
-                txtIngredientName.Clear();
-                txtIngredientQuantity.Clear();
+                MessageBox.Show("Пожалуйста, введите корректное количество.");
+                return;
             }
-            else
+
+            Ingredients ingredient = new Ingredients
             {
-                MessageBox.Show("Please enter a valid quantity.");
-            }
+                Name = ingredientName,
+                Quantity = ingredientQuantity
+            };
+
+            lvIngredients.Items.Add(ingredient);
+
+            // Обновление ListView
+            lvIngredients.Items.Refresh();
+
+            // Очистка полей ввода
+            txtIngredientName.Clear();
+            txtIngredientQuantity.Clear();
         }
     }
 }

@@ -34,12 +34,7 @@ namespace Negr.PageApp
             InitializeComponent();
             this.user = user;
 
-            Recipes = new List<Recipes>
-            {
-                new Recipes { Name = "Рецепт 1", ImagePath = "image1.jpg", Instructions = "Инструкции для рецепта 1" },
-                new Recipes { Name = "Рецепт 2", ImagePath = "image2.jpg", Instructions = "Инструкции для рецепта 2" },
-                new Recipes { Name = "Рецепт 3", ImagePath = "image3.jpg", Instructions = "Инструкции для рецепта 3" }
-            };
+            Recipes = DBConection.dbContext.Recipes.Where(x=> x.UserID == this.user.UserID).ToList();
 
             foreach (var recipe in Recipes)
             {
@@ -101,6 +96,21 @@ namespace Negr.PageApp
         {
             // Откройте окно для добавления нового рецепта
             this.NavigationService.Navigate(new AddRecipe(user));
+        }
+
+        private void DeleteRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            if (RecipeListView.SelectedItem != null)
+            {
+                // Получите выбранный рецепт
+                Recipes selectedRecipe = RecipeListView.SelectedItem as Recipes;
+
+                // Удалите его из списка Recipes
+                Recipes.Remove(selectedRecipe);
+                DBConection.dbContext.Recipes.Remove(selectedRecipe);
+                DBConection.dbContext.SaveChanges();
+                RecipeListView.Items.Refresh();
+            }
         }
     }
 }

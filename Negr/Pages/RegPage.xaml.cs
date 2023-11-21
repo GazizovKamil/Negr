@@ -67,5 +67,6 @@ namespace Negr.PageApp
         {
             NavigationService.Navigate(new AutoPage());
         }
+
     }
 }

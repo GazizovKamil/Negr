@@ -25,5 +25,11 @@ namespace Negr.Requests
             DBConection.dbContext.Users.Add(newUser);
             DBConection.dbContext.SaveChanges();
         }
+
+        public static void SaveRecipeToDatabase(Recipes recipe)
+        {
+            DBConection.dbContext.Recipes.Add(recipe);
+            DBConection.dbContext.SaveChanges();
+        }
     }
 }

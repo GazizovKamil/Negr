@@ -105,10 +105,21 @@ namespace Negr.PageApp
                 // Получите выбранный рецепт
                 Recipes selectedRecipe = RecipeListView.SelectedItem as Recipes;
 
-                // Удалите его из списка Recipes
+                // Удалите связанные ингредиенты
+                foreach (var ingredient in selectedRecipe.Ingredients.ToList())
+                {
+                    DBConection.dbContext.Ingredients.Remove(ingredient);
+                }
+
+                // Удалите рецепт из списка Recipes
                 Recipes.Remove(selectedRecipe);
+
+                // Затем удалите рецепт из таблицы Recipes
                 DBConection.dbContext.Recipes.Remove(selectedRecipe);
+
+                // Сохраните изменения
                 DBConection.dbContext.SaveChanges();
+
                 RecipeListView.Items.Refresh();
             }
         }

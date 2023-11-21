@@ -1,4 +1,5 @@
-﻿using Negr.PageApp;
+﻿using Negr.ClassApp;
+using Negr.PageApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,12 @@ namespace Negr.Windows
             InitializeComponent();
             DataContext = recipe;
             this.user = user;
-            lvIngredients.Items.Add(recipe.Ingredients);
+
+            foreach (var ingredient in recipe.Ingredients.ToList())
+            {
+                lvIngredients.Items.Add(ingredient);
+            }
+            
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

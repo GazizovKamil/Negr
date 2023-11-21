@@ -41,9 +41,16 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.7.2\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -64,56 +71,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Balances.cs">
-      <DependentUpon>GreenKazik.tt</DependentUpon>
+    <Compile Include="Ingredients.cs">
+      <DependentUpon>RecipeDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Crits.cs">
-      <DependentUpon>GreenKazik.tt</DependentUpon>
+    <Compile Include="Pages\AddRecipe.xaml.cs">
+      <DependentUpon>AddRecipe.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GreenKazik.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GreenKazik.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GreenKazik.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GreenKazik.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GreenKazik.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GreenKazik.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Invent.cs">
-      <DependentUpon>GreenKazik.tt</DependentUpon>
-    </Compile>
-    <Compile Include="InventItems.cs">
-      <DependentUpon>GreenKazik.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Items.cs">
-      <DependentUpon>GreenKazik.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Logins.cs">
-      <DependentUpon>GreenKazik.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PageApp\AutoPage.xaml.cs">
+    <Compile Include="Pages\AutoPage.xaml.cs">
       <DependentUpon>AutoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageApp\MainPage.xaml.cs">
+    <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageApp\RegPage.xaml.cs">
+    <Compile Include="Pages\RegPage.xaml.cs">
       <DependentUpon>RegPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Phots.cs">
-      <DependentUpon>GreenKazik.tt</DependentUpon>
+    <Compile Include="RecipeDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>GreenKazik.tt</DependentUpon>
+    <Compile Include="RecipeDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes.cs">
+      <DependentUpon>RecipeDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Requests\Requests.cs" />
+    <Compile Include="Pages\RecipeDetails.xaml.cs">
+      <DependentUpon>RecipeDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>GreenKazik.tt</DependentUpon>
+      <DependentUpon>RecipeDB.tt</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -123,20 +119,28 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ClassApp\DBConection.cs" />
+    <Compile Include="Connection\DBConection.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PageApp\AutoPage.xaml">
+    <Page Include="Pages\AddRecipe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageApp\MainPage.xaml">
+    <Page Include="Pages\AutoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageApp\RegPage.xaml">
+    <Page Include="Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RegPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RecipeDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,17 +163,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="GreenKazik.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GreenKazik.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="GreenKazik.edmx.diagram">
-      <DependentUpon>GreenKazik.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="RecipeDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RecipeDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="RecipeDB.edmx.diagram">
+      <DependentUpon>RecipeDB.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -180,19 +184,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ADDApp\" />
-    <Folder Include="WindowApp\" />
-    <Folder Include="Windows\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GreenKazik.Context.tt">
+    <Content Include="RecipeDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GreenKazik.edmx</DependentUpon>
-      <LastGenOutput>GreenKazik.Context.cs</LastGenOutput>
+      <DependentUpon>RecipeDB.edmx</DependentUpon>
+      <LastGenOutput>RecipeDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="GreenKazik.tt">
+    <Content Include="RecipeDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GreenKazik.edmx</DependentUpon>
-      <LastGenOutput>GreenKazik.cs</LastGenOutput>
+      <DependentUpon>RecipeDB.edmx</DependentUpon>
+      <LastGenOutput>RecipeDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

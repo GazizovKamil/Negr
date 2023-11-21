@@ -13,10 +13,10 @@ namespace Negr
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GreenKazikEntities : DbContext
+    public partial class RecipeDBEntities : DbContext
     {
-        public GreenKazikEntities()
-            : base("name=GreenKazikEntities")
+        public RecipeDBEntities()
+            : base("name=RecipeDBEntities")
         {
         }
     
@@ -25,14 +25,8 @@ namespace Negr
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Balances> Balances { get; set; }
-        public virtual DbSet<Crits> Crits { get; set; }
-        public virtual DbSet<Invent> Invent { get; set; }
-        public virtual DbSet<InventItems> InventItems { get; set; }
-        public virtual DbSet<Items> Items { get; set; }
-        public virtual DbSet<Logins> Logins { get; set; }
-        public virtual DbSet<Phots> Phots { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Ingredients> Ingredients { get; set; }
+        public virtual DbSet<Recipes> Recipes { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

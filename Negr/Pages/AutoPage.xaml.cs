@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Negr.ClassApp;
 
 namespace Negr.PageApp
 {
@@ -33,19 +32,27 @@ namespace Negr.PageApp
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if ((TextLogin.Text !="") && (TextPassword.Password != ""))
+            if (AreCredentialsValid(TextLogin.Text, TextPassword.Password))
             {
-                var DataLogin = DBConection.GreenAntiCafeWithBearEntities.Logins.Where
-                    (z => z.login == TextLogin.Text && z.Password == TextPassword.Password).FirstOrDefault();
-                if(DataLogin != null)
+                var user = Requests.Requests.GetUser(TextLogin.Text, TextPassword.Password);
+                if (user != null)
                 {
-                    this.NavigationService.Navigate(new MainPage(DataLogin));
+                    this.NavigationService.Navigate(new MainPage(user));
+                }
+                else
+                {
+                    MessageBox.Show("Не правильно!!\n пароль или логин");
                 }
             }
             else
             {
-                MessageBox.Show("Incorrect!!\n password or login");
+                MessageBox.Show("Не заполнены поля логина или пароля");
             }
+        }
+
+        public static bool AreCredentialsValid(string username, string password)
+        {
+            return !string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password);
         }
     }
 }

@@ -17,22 +17,15 @@ namespace Negr
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
-            this.Balances = new HashSet<Balances>();
-            this.Invent = new HashSet<Invent>();
-            this.Logins = new HashSet<Logins>();
-            this.Phots = new HashSet<Phots>();
+            this.Recipes = new HashSet<Recipes>();
         }
     
-        public string Name { get; set; }
-        public int id_User { get; set; }
+        public int UserID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Balances> Balances { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invent> Invent { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Logins> Logins { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Phots> Phots { get; set; }
+        public virtual ICollection<Recipes> Recipes { get; set; }
     }
 }

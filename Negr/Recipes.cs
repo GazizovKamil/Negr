@@ -11,21 +11,26 @@ namespace Negr
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Crits
+    using System.Windows.Media.Imaging;
+
+    public partial class Recipes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Crits()
+        public Recipes()
         {
-            this.Invent = new HashSet<Invent>();
+            this.Ingredients = new HashSet<Ingredients>();
         }
     
-        public int id_Crit { get; set; }
-        public string Title { get; set; }
-        public int count { get; set; }
-        public int price { get; set; }
+        public int RecipeID { get; set; }
+        public Nullable<int> UserID { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> PreparationTime { get; set; }
+        public string Instructions { get; set; }
+        public string ImagePath { get; set; }
+        public BitmapImage Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invent> Invent { get; set; }
+        public virtual ICollection<Ingredients> Ingredients { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

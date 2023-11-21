@@ -5,9 +5,11 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="Grid">
-            <Setter Property="Background" Value="DarkCyan">
-                
-            </Setter>
+            <Setter Property="Background" Value="#D6CCCC"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#401B94"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
     </Application.Resources>
 </Application>

@@ -12,12 +12,13 @@ namespace Negr
     using System;
     using System.Collections.Generic;
     
-    public partial class Phots
+    public partial class Ingredients
     {
-        public int id_Phot { get; set; }
-        public int User_id { get; set; }
-        public string path { get; set; }
+        public int IngredientID { get; set; }
+        public Nullable<int> RecipeID { get; set; }
+        public string Name { get; set; }
+        public int Quantity { get; set; }
     
-        public virtual Users Users { get; set; }
+        public virtual Recipes Recipes { get; set; }
     }
 }
